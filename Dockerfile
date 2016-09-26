@@ -6,7 +6,7 @@ RUN apt-get -y update && apt-get -y install python-software-properties \
 software-properties-common postgresql
 
 # Copy the supervisor startup configuration to the configuration directory
-COPY ./conf/postgresql_sv.conf /etc/supervisor/config.d/postgresql_sv.conf
+COPY ./conf/postgresql_sv.conf /etc/supervisor/conf.d/postgresql_sv.conf
 
 # Change postgresql config to accept connections from external sources
 RUN sed -i "s/^#listen_.*$/listen_addresses = \'*\'/g" /etc/postgresql/9.5/main/postgresql.conf
